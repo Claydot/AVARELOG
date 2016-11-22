@@ -14,6 +14,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.plan;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.ds.avare.StorageService;
 import com.ds.avare.place.Destination;
@@ -53,6 +54,7 @@ public class Cifp {
     }
 
     public void setApproach(StorageService service, Preferences prefs) {
+        Log.d("Avare", "Set Approach");
         String wp = mInitialCourse + " " + mFinalCourse + " " + mMissedCourse;
 
         if(mCreateTask != null && mCreateTask.getStatus() == AsyncTask.Status.RUNNING) {

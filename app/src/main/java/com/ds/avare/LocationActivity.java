@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -69,6 +70,7 @@ import java.io.File;
 import java.net.URI;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Logger;
 
 /**
  * @author zkhan, jlmcgraw
@@ -352,6 +354,7 @@ public class LocationActivity extends Activity implements Observer {
      *
      */
     private void hideMenu() {
+        Log.d("Avare", "HideMenu");
         mAnimateTracks.animateBack();
         mAnimateWeb.animateBack();
         mAnimateSim.animateBack();
@@ -366,6 +369,7 @@ public class LocationActivity extends Activity implements Observer {
      *
      */
     private void showMenu() {
+        Log.d("Avare", "ShowMenu");
         mAnimateTracks.animate();
         mAnimateWeb.animate();
         mAnimateSim.animate();
@@ -503,6 +507,7 @@ public class LocationActivity extends Activity implements Observer {
         mChartOption.setCallback(new GenericCallback() {
             @Override
             public Object callback(Object o, Object o1) {
+                Log.d("Avare", "ChartOptions");
                 mPref.setChartType("" + (int) o1);
                 mLocationView.forceReload();
                 return null;
@@ -572,6 +577,7 @@ public class LocationActivity extends Activity implements Observer {
 
             @Override
             public void onClick(View v) {
+                Log.d("Avare", "showMenu");
                 showMenu();
             }
 
@@ -585,6 +591,7 @@ public class LocationActivity extends Activity implements Observer {
                 Intent intent = new Intent(LocationActivity.this, WebActivity.class);
                 intent.putExtra("url", NetworkHelper.getHelpUrl(LocationActivity.this));
                 startActivity(intent);
+                Log.d("Avare", "Help");
             }
 
         });
@@ -597,6 +604,7 @@ public class LocationActivity extends Activity implements Observer {
             public void onClick(View v) {
                 if(mService != null) {
                     if(mLocationView.getDraw()) {
+                        Log.d("Avare", "DrawClear");
                         mService.getDraw().clear();
                     }
                 }

@@ -12,6 +12,8 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.place;
 
+import android.util.Log;
+
 import com.ds.avare.position.Coordinate;
 
 import java.util.regex.Matcher;
@@ -39,6 +41,7 @@ public class NavAid {
     private static final Pattern FrequencyPattern = Pattern.compile("(\\d.+)");
 
     public String getFrequency() {
+        Log.d("Avare", "Get Frequency");
         Matcher m = FrequencyPattern.matcher(mFacilityName);
         return m.find() ? m.group(1) : "";
     }

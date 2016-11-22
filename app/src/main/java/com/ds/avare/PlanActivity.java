@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -128,7 +129,7 @@ public class PlanActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        Log.d("Avare", "PlanTab");
         Helper.setTheme(this);
         super.onCreate(savedInstanceState);
      

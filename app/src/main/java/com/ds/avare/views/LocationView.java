@@ -23,6 +23,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -1394,7 +1395,7 @@ public class LocationView extends View implements MultiTouchObjectCanvas<Object>
         
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-        	
+            Log.d("Avare", "Single Tap");
         	// Ignore this gesture if we are not configured to use dynamic fields
         	if((mPref.useDynamicFields() == false) || (mService == null)) {
         		return false;
@@ -1412,7 +1413,7 @@ public class LocationView extends View implements MultiTouchObjectCanvas<Object>
         
         @Override
         public boolean onDoubleTap(MotionEvent e) {
-        	
+            Log.d("Avare", "Double Tap");
         	// Ignore this gesture if we are not configured to use dynamic fields
         	if((mPref.useDynamicFields() == false) || (mService == null)) {
         		return false;
@@ -1438,9 +1439,10 @@ public class LocationView extends View implements MultiTouchObjectCanvas<Object>
              */
             double x = e.getX();
             double y = e.getY();
-
+            Log.d("Avare", "Long Press");
             if(mService != null) {
-            	InfoLineFieldLoc infoLineFieldLoc = mService.getInfoLines().findField(mPaint, (float)x, (float)y);
+            	InfoLineFieldLoc
+                        infoLineFieldLoc = mService.getInfoLines().findField(mPaint, (float)x, (float)y);
             	if(infoLineFieldLoc != null) {
                 	// We have the row and field. Send the gesture off for processing
                 	mGestureCallBack.gestureCallBack(GestureInterface.LONG_PRESS, infoLineFieldLoc);

@@ -22,6 +22,7 @@ import com.ds.avare.message.NetworkHelper;
 import com.ds.avare.utils.PossibleEmail;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * LMFS 1-800-WX-BRIEF.COM interface 
@@ -94,7 +95,7 @@ public class LmfsInterface {
 	 * Get a flight plans
 	 */
 	public LmfsPlan getFlightPlan(String id) {
-		
+		Log.d("Avare", "Get Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/" + id + "/retrieve";
 		String httpMethod = "GET";
@@ -119,7 +120,7 @@ public class LmfsInterface {
 	 * Close a flight plan
 	 */
 	public String closeFlightPlan(String id, String loc) {
-		
+		Log.d("Avare", "Close Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/" + id + "/close";
 		String httpMethod = "POST";
@@ -148,7 +149,7 @@ public class LmfsInterface {
 	 * Activate a flight plan
 	 */
 	public String activateFlightPlan(String id, String version, String future) {
-		
+		Log.d("Avare", "Activate Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/" + id + "/activate";
 		String httpMethod = "POST";
@@ -175,7 +176,7 @@ public class LmfsInterface {
 	 * Cancel a flight plans
 	 */
 	public String cancelFlightPlan(String id) {
-		
+		Log.d("Avare", "Cancel Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/" + id + "/cancel";
 		String httpMethod = "POST";
@@ -199,7 +200,7 @@ public class LmfsInterface {
 	 * File a flight plan
 	 */
 	public String fileFlightPlan(LmfsPlan plan) {
-		
+		Log.d("Avare", "File Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/file";
 		String httpMethod = "POST";
@@ -224,7 +225,7 @@ public class LmfsInterface {
 	 * Amend a flight plan
 	 */
 	public String amendFlightPlan(LmfsPlan plan) {
-		
+		Log.d("Avare", "Amend Flight Plan");
 		String webUserName = PossibleEmail.get(mContext);
 		String avareMethod = "FP/" + plan.getId() + "/amend";
 		String httpMethod = "POST";

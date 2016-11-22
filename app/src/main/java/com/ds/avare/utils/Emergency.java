@@ -14,6 +14,7 @@ package com.ds.avare.utils;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.telephony.SmsManager;
+import android.util.Log;
 
 import com.ds.avare.R;
 import com.ds.avare.StorageService;
@@ -30,6 +31,7 @@ import java.util.ArrayList;
  */
 public class Emergency {
     public static String declare(Context ctx, final Preferences pref, final StorageService service) {
+        Log.d("Avare", "Emergency");
         String ret = ctx.getString(R.string.Done);
 
         final GpsParams params = service.getGpsParams();
